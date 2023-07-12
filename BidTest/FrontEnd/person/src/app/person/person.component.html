@@ -1,0 +1,43 @@
+<h1>People</h1>
+
+<form class="container" [formGroup]="formPerson" (ngSubmit)="savePerson()">
+    <div class="form-group row">
+        <label class="control-label col-md-12">First Name</label>
+        <div class="col-md-12">
+            <input class="form-control" id="firstName" name="firstName" type="text" formControlName="firstName" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12">Last Name</label>
+        <div class="col-md-12">
+            <input class="form-control" type="text" formControlName="lastName" required>
+        </div>
+    </div>
+
+    <div class="form-group mt-1">
+        <button type="submit" class="btn btn-success float-right">Save</button>
+    </div>
+</form>
+
+<p *ngIf="!(people$ | async)"><em>Loading...</em></p>
+
+<div class="container border mt-5">
+<table class="table table-sm table-hover" *ngIf="(people$ | async)">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.personId }}</td>
+      <td>{{ person.firstName }}</td>
+      <td>{{ person.lastName }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
