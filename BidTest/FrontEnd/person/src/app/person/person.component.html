@@ -20,8 +20,6 @@
     </div>
 </form>
 
-<p *ngIf="!(people$ | async)"><em>Loading...</em></p>
-
 <div class="container border mt-5">
 <table class="table table-sm table-hover" *ngIf="(people$ | async)">
   <thead>
