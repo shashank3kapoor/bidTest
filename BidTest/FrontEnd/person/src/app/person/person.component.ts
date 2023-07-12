@@ -45,7 +45,6 @@ export class PersonComponent implements OnInit {
   }
 
   savePerson() {
-    debugger;
     if(!this.formPerson.valid) {
       return;
     }
