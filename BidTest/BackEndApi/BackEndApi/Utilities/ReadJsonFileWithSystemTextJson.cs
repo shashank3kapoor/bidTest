@@ -17,6 +17,9 @@ namespace BackEndApi.Utilities
 
 		public IEnumerable<Person> UseFileOpenReadTextWithSystemTextJson ()
 		{
+			if (!File.Exists (_sampleJsonFilePath)) {
+				yield break;
+			}
 			using StreamReader sr = new StreamReader(_sampleJsonFilePath);
 			while (!sr.EndOfStream)
 			{
